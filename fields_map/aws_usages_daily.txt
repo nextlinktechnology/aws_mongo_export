@@ -1,0 +1,14 @@
+bill/PayerAccountId
+fix_cfrc_type
+fix_line_item_description
+fix_line_item_type
+fix_un_blended_cost
+fix_usage_date
+lineItem/AvailabilityZone
+lineItem/UsageAccountId
+lineItem/UsageAmount
+lineItem/UsageType
+product/instanceType
+product/ProductName
+reservation/SubscriptionId
+savingsPlan/SavingsPlanARN

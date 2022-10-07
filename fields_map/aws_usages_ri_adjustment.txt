@@ -1,0 +1,14 @@
+bill/InvoicingEntity
+bill/BillingEntity
+bill/BillType
+bill/PayerAccountId
+lineItem/UsageAccountId
+lineItem/LineItemType
+lineItem/UsageStartDate
+lineItem/UsageEndDate
+lineItem/ProductCode
+lineItem/UsageAmount
+lineItem/UnblendedRate
+lineItem/UnblendedCost
+lineItem/BlendedRate
+lineItem/BlendedCost

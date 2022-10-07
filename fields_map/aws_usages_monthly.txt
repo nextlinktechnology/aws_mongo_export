@@ -1,0 +1,15 @@
+bill/PayerAccountId
+fix_adjustment
+fix_line_item_type
+fix_month
+fix_un_blended_cost
+fix_usage_date
+lineItem/AvailabilityZone
+lineItem/LineItemType
+lineItem/UnblendedCost
+lineItem/UsageAccountId
+lineItem/UsageType
+product/instanceType
+product/ProductName
+reservation/SubscriptionId
+savingsPlan/SavingsPlanARN

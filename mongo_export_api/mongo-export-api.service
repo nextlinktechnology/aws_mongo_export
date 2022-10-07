@@ -1,0 +1,12 @@
+[Unit]
+Description=Mongo-export-entry-flask
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/mongo_export/mongo_export_api
+ExecStart=/usr/bin/python3.10 /home/ubuntu/mongo_export/mongo_export_api/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

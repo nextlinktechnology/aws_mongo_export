@@ -1,0 +1,8 @@
+conn.yml
+env.sh
+env.py
+setup_env.sh
+output.txt
+__pycache__
+test*
+data/*
