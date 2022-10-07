@@ -92,4 +92,4 @@ write_log "done"
 
 # -1. stop this instance
 write_log "=== trigger lambda self stop ==="
-    # aws lambda invoke --function-name mongo_export_ec2_lambda --payload '{"action":"stop_ec2"}' output.txt >> ${LOG_PATH}
+    aws lambda invoke --function-name mongo_export_ec2_lambda --payload '{"action":"stop_ec2"}' output.txt >> ${LOG_PATH}
