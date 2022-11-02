@@ -14,7 +14,7 @@ provider "aws" {
 
 ## AWS Lambda Function - mongo_export_lambda
 resource "aws_lambda_function" "mongo_export_lambda" {
-  function_name = "mongo_export_lambda"
+  function_name = var.mongo_export_lambda_function_name
 
   filename = data.archive_file.mongo_export_lambda.output_path
 
@@ -34,7 +34,7 @@ resource "aws_lambda_function" "mongo_export_lambda" {
 }
 
 resource "aws_iam_role" "mongo_export_lambda_role" {
-  name = "mongo_export_lambda_role"
+  name = var.mongo_export_lambda_role_name
 
   assume_role_policy = <<EOF
 {
@@ -55,7 +55,7 @@ EOF
 
 # IAM policy that allows the mongo_export_lambda_role to get required permissions
 resource "aws_iam_policy" "mongo_export_lambda_policy" {
-  name        = "mongo_export_lambda_policy"
+  name        = var.mongo_export_lambda_policy_name
   description = "IAM policy for Lambda function to mongo_export"
 
   path   = "/"
@@ -64,14 +64,14 @@ resource "aws_iam_policy" "mongo_export_lambda_policy" {
 
 # Attach policy to IAM role
 resource "aws_iam_policy_attachment" "mongo_export_lambda_attach" {
-  name       = "mongo_export_lambda_attachment"
+  name       = var.mongo_export_lambda_attach_name
   roles      = ["${aws_iam_role.mongo_export_lambda_role.name}"]
   policy_arn = aws_iam_policy.mongo_export_lambda_policy.arn
 }
 
 ## AWS Lambda Function - mongo_export_ec2_lambda
 resource "aws_lambda_function" "mongo_export_ec2_lambda" {
-  function_name = "mongo_export_ec2_lambda"
+  function_name = var.mongo_export_ec2_lambda_function_name
 
   filename = data.archive_file.mongo_export_ec2_lambda.output_path
 
@@ -86,7 +86,7 @@ resource "aws_lambda_function" "mongo_export_ec2_lambda" {
 }
 
 resource "aws_iam_role" "mongo_export_ec2_lambda_role" {
-  name = "mongo_export_ec2_lambda_role"
+  name = var.mongo_export_ec2_lambda_role_name
 
   assume_role_policy = <<EOF
 {
@@ -107,7 +107,7 @@ EOF
 
 # IAM policy that allows the mongo_export_ec2_lambda_role to get required permissions
 resource "aws_iam_policy" "mongo_export_ec2_lambda_policy" {
-  name        = "mongo_export_ec2_lambda_policy"
+  name        = var.mongo_export_ec2_lambda_policy_name
   description = "IAM policy for Lambda function to mongo_export_ec2"
 
   path   = "/"
@@ -116,7 +116,7 @@ resource "aws_iam_policy" "mongo_export_ec2_lambda_policy" {
 
 # Attach policy to IAM role
 resource "aws_iam_policy_attachment" "mongo_export_ec2_lambda_attach" {
-  name       = "mongo_export_ec2_lambda_attachment"
+  name       = var.mongo_export_ec2_lambda_attach_name
   roles      = ["${aws_iam_role.mongo_export_ec2_lambda_role.name}"]
   policy_arn = aws_iam_policy.mongo_export_ec2_lambda_policy.arn
 }
