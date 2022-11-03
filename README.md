@@ -34,6 +34,7 @@ $ pip3 install flask==2.2.2
 ```sh
 sudo apt-get install apt-transport-https ca-certificates gnupg
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install google-cloud-cli
 ```
 ## Setup
@@ -44,7 +45,7 @@ aws configure
 ```
 2. google cloud cli
 ```sh
-gcloud auth activate-service-account {service_account} --key {./.key/*.json} --project=mf-api-dev
+gcloud auth activate-service-account {service_account} --key-file {./.key/*.json} --project=mf-api-dev
 ```
 3. python-flask api daemon service config
 ```sh

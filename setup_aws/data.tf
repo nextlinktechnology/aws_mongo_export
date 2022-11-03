@@ -4,11 +4,11 @@ data "archive_file" "mongo_export_lambda" {
   type        = "zip"
   output_path = "/tmp/mongo_export_lambda.zip"
   source {
-    content  = file("/home/ubuntu/mongo_export/mongo_export_lambda/lambda_function.py")
+    content  = file("/home/ubuntu/aws_mongo_export/current/mongo_export_lambda/lambda_function.py")
     filename = "lambda_function.py"
   }
   source {
-    content  = file("/home/ubuntu/mongo_export/mongo_export_lambda/env.py")
+    content  = file("/home/ubuntu/aws_mongo_export/current/mongo_export_lambda/env.py")
     filename = "env.py"
   }
 }
@@ -18,11 +18,11 @@ data "archive_file" "mongo_export_ec2_lambda" {
   type        = "zip"
   output_path = "/tmp/mongo_export_ec2_lambda.zip"
   source {
-    content  = file("/home/ubuntu/mongo_export/mongo_export_ec2_lambda/lambda_function.py")
+    content  = file("/home/ubuntu/aws_mongo_export/current/mongo_export_ec2_lambda/lambda_function.py")
     filename = "lambda_function.py"
   }
   source {
-    content  = file("/home/ubuntu/mongo_export/mongo_export_ec2_lambda/env.py")
+    content  = file("/home/ubuntu/aws_mongo_export/current/mongo_export_ec2_lambda/env.py")
     filename = "env.py"
   }
 }
