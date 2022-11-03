@@ -4,7 +4,8 @@ INSTANCE_TYPE=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
 
 SECRET=
 
-RUN_PATH="/home/ubuntu/mongo_export"
+RUN_PATH="/home/ubuntu/aws_mongo_export/current"
+DATA_PATH="/mongo_export_data"
 LOG_PATH=${RUN_PATH}/log/export.log
 S3_PATH=
 TRANS_JOBID=
@@ -12,6 +13,7 @@ TRANS_JOBID=
 echo "make env file for mongo_export"
 cat <<EOF > env.sh
 RUN_PATH="${RUN_PATH}"
+DATA_PATH="${DATA_PATH}"
 LOG_PATH="${LOG_PATH}"
 S3_PATH="${S3_PATH}"
 TRANS_JOBID="${TRANS_JOBID}"

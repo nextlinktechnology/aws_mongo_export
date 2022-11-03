@@ -1,5 +1,6 @@
+. ./env.sh
 NVME_STATUS=$(sudo file -s /dev/nvme0n1)
-DATA_PATH="/home/ubuntu/mongo_export/data"
+
 echo $NVME_STATUS
 
 if [ "$NVME_STATUS" = "/dev/nvme0n1: data" ]; then
