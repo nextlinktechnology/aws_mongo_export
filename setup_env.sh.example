@@ -2,13 +2,14 @@ LOCAL_IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 INSTANCE_TYPE=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
 
-SECRET=
+SECRET=""
 
 RUN_PATH="/home/ubuntu/aws_mongo_export/current"
-DATA_PATH="/mongo_export_data"
 LOG_PATH=${RUN_PATH}/log/export.log
-S3_PATH=
-TRANS_JOBID=
+DATA_PATH="/mongo_export_data"
+S3_PATH=""
+TRANS_JOBID=""
+SPLIT_SIZE=15000000
 
 echo "make env file for mongo_export"
 cat <<EOF > env.sh
@@ -17,6 +18,9 @@ DATA_PATH="${DATA_PATH}"
 LOG_PATH="${LOG_PATH}"
 S3_PATH="${S3_PATH}"
 TRANS_JOBID="${TRANS_JOBID}"
+INSTANCE_ID="${INSTANCE_ID}"
+INSTANCE_TYPE="${INSTANCE_TYPE}"
+SPLIT_SIZE=${SPLIT_SIZE}
 EOF
 
 echo "make env file for mongo_export_lambda"
@@ -28,4 +32,11 @@ EOF
 echo "make env file for mongo_export_ec2_lambda"
 cat <<EOF > mongo_export_ec2_lambda/env.py
 INSTANCE_ID="${INSTANCE_ID}"
+EOF
+
+echo "make env file for mongo_export_api"
+cat <<EOF > mongo_export_api/env.py
+LOCAL_IP="${LOCAL_IP}"
+SECRET="${SECRET}"
+RUN_PATH="${RUN_PATH}"
 EOF
