@@ -1,0 +1,6 @@
+_id
+payer_account_id
+usage_account_id
+resource_tag
+tag_key
+tag_value
