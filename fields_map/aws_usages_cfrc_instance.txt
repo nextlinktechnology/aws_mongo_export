@@ -30,3 +30,5 @@ savingsPlan/SavingsPlanARN
 savingsPlan/SavingsPlanEffectiveCost
 savingsPlan/SavingsPlanRate
 savingsPlan/StartTime
+concat_resourceTags/user
+concat_resourceTags/aws
