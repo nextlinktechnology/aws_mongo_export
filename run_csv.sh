@@ -78,7 +78,6 @@ write_log "=== ${INSTANCE_TYPE}-${YEAR_MONTH}${COL} ==="
     { mongoexport --config=${RUN_PATH}/conn.yml \
         -d=prd_billing_portal \
         -c=${YEAR_MONTH}${COL} \
-        -q='{"fix_line_item_type":{"$ne":"SavingsPlanNegation"}}' \
         --fieldFile=${RUN_PATH}/fields_map/${COL}.txt \
         --noHeaderLine \
         --type=csv \
