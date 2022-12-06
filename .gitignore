@@ -6,3 +6,8 @@ output.txt
 __pycache__
 test*
 data/*
+# capistrano files
+config/deploy/production.rb
+config/deploy/staging.rb
+cap_log
+Capfile

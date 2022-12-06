@@ -1,5 +1,6 @@
+. ./env.sh
 NVME_STATUS=$(sudo file -s /dev/nvme0n1)
-DATA_PATH="/home/ubuntu/mongo_export/data"
+
 echo $NVME_STATUS
 
 if [ "$NVME_STATUS" = "/dev/nvme0n1: data" ]; then
@@ -7,7 +8,7 @@ if [ "$NVME_STATUS" = "/dev/nvme0n1: data" ]; then
     if [ -d "$DATA_PATH" ]; then
         sudo rm -r $DATA_PATH
     fi
-    mkdir $DATA_PATH
+    sudo mkdir $DATA_PATH
     sudo mkfs -t xfs /dev/nvme0n1
     sudo mount /dev/nvme0n1 $DATA_PATH
     sudo chmod -R 777 $DATA_PATH

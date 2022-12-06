@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=ubuntu
-WorkingDirectory=/home/ubuntu/mongo_export/mongo_export_api
-ExecStart=/usr/bin/python3.10 /home/ubuntu/mongo_export/mongo_export_api/app.py
+WorkingDirectory=/home/ubuntu/aws_mongo_export/current/mongo_export_api
+ExecStart=/usr/bin/python3.10 /home/ubuntu/aws_mongo_export/current/mongo_export_api/app.py
 Restart=always
 
 [Install]
