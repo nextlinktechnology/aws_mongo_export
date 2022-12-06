@@ -11,6 +11,7 @@ lineItem/UsageAmount
 lineItem/UsageType
 product/instanceType
 product/ProductName
+product/region
 reservation/SubscriptionId
 savingsPlan/SavingsPlanARN
 resource_tags

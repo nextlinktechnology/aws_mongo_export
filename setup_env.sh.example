@@ -10,6 +10,8 @@ DATA_PATH="/mongo_export_data"
 S3_PATH=""
 TRANS_JOBID=""
 SPLIT_SIZE=15000000
+PROJECT_NAME=""
+DATASET_NAME=""
 
 echo "make env file for mongo_export"
 cat <<EOF > env.sh
@@ -21,6 +23,8 @@ TRANS_JOBID="${TRANS_JOBID}"
 INSTANCE_ID="${INSTANCE_ID}"
 INSTANCE_TYPE="${INSTANCE_TYPE}"
 SPLIT_SIZE=${SPLIT_SIZE}
+PROJECT_NAME=${PROJECT_NAME}
+DATASET_NAME=${DATASET_NAME}
 EOF
 
 echo "make env file for mongo_export_lambda"
