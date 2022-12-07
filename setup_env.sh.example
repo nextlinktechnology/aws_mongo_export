@@ -28,13 +28,13 @@ DATASET_NAME=${DATASET_NAME}
 EOF
 
 echo "make env file for mongo_export_lambda"
-cat <<EOF > mongo_export_lambda/env.py
+cat <<EOF > setup_aws/mongo_export_lambda/env.py
 LOCAL_IP="${LOCAL_IP}"
 SECRET="${SECRET}"
 EOF
 
 echo "make env file for mongo_export_ec2_lambda"
-cat <<EOF > mongo_export_ec2_lambda/env.py
+cat <<EOF > setup_aws/mongo_export_ec2_lambda/env.py
 INSTANCE_ID="${INSTANCE_ID}"
 EOF
 
@@ -43,4 +43,9 @@ cat <<EOF > mongo_export_api/env.py
 LOCAL_IP="${LOCAL_IP}"
 SECRET="${SECRET}"
 RUN_PATH="${RUN_PATH}"
+EOF
+
+echo "make env file for bqload_fuction"
+cat <<EOF > setup_gcp_function/cloud_function/env.py
+DATASET="${DATASET_NAME}"
 EOF
