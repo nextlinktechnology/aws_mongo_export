@@ -75,3 +75,15 @@ bash setup_env.sh
    * for env_variable : DATASET_NAME
    * for terraform - setup_gcp_bigquery - variable : dataset_id
    * for terraform - setup_gcp_function - variable : dataset_id
+
+## CI/CD Process
+1. Mongo-export
+   * capistrano deploy directly integrate command code
+2. Mongo-export-api
+   * capistrano deploy with script: setup_api:run
+3. AWS-Lambda
+   * capistrano deploy with script: setup_aws:run
+4. GCP-BigQuery
+   * capistrano deploy with script: setup_bigquery:run
+5. GCP-Function
+   * capistrano deploy with script: setup_function:run

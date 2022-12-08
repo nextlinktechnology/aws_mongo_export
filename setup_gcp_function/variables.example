@@ -18,13 +18,6 @@ description = "region"
   default     = "asia-east1"
 }
 
-## GCP BigQuery Config
-variable "dataset_id" {
-  description = "dataset_id"
-  type        = string
-  default     = "terraform_test"
-}
-
 ## GCP Storage Config
 variable "function_bucket" {
   description = "function_bucket"

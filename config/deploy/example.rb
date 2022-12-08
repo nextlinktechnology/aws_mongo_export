@@ -53,4 +53,9 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
 after :deploy, "setup_env:run"
+# after :deplot, "setup_api:run"
+# after :deploy, "setup_aws:run"
+# after :deploy, "setup_bigquery:run"
+# after :deploy, "setup_function:run"
