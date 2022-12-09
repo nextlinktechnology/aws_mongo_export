@@ -1,3 +1,4 @@
+# env config
 conn.yml
 env.sh
 env.py
@@ -11,3 +12,7 @@ config/deploy/production.rb
 config/deploy/staging.rb
 cap_log
 Capfile
+# local dev
+dockerfile
+.devcontainer
+.DS_Store

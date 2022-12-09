@@ -1,3 +1,10 @@
+## terraform env
+variable "run_path" {
+  description = "terraform_run_path"
+  type        = string
+  default     = "/home/ubuntu/aws_mongo_export/current"
+}
+
 ## mongo_export_lambda VPC config
 variable "lambda_subnet_id" {
   description = "VPC subnet_id for export mongodb and export instance"
@@ -15,48 +22,48 @@ variable "lambda_security_group_id" {
 variable "mongo_export_lambda_function_name" {
   description = "function name of mongo_export_lambda"
   type        = string
-  default     = "mongo_export_lambda_test"
+  default     = "mongo_export_lambda_test_local"
 }
 
 variable "mongo_export_lambda_role_name" {
   description = "name of mongo_export_lambda_role"
   type        = string
-  default     = "mongo_export_lambda_role_test"
+  default     = "mongo_export_lambda_role_test_loacl"
 }
 
 variable "mongo_export_lambda_policy_name" {
   description = "name of mongo_export_lambda_policy"
   type        = string
-  default     = "mongo_export_lambda_policy_test"
+  default     = "mongo_export_lambda_policy_test_local"
 }
 
 variable "mongo_export_lambda_attach_name" {
   description = "name of mongo_export_lambda_attach"
   type        = string
-  default     = "mongo_export_lambda_attach_test"
+  default     = "mongo_export_lambda_attach_test_local"
 }
 
 ## mongo_export_ec2_lambda name config
 variable "mongo_export_ec2_lambda_function_name" {
   description = "function name of mongo_export_ec2_lambda"
   type        = string
-  default     = "mongo_export_ec2_lambda_test"
+  default     = "mongo_export_ec2_lambda_test_local"
 }
 
 variable "mongo_export_ec2_lambda_role_name" {
   description = "name of mongo_export_ec2_lambda_role"
   type        = string
-  default     = "mongo_export_ec2_lambda_role_test"
+  default     = "mongo_export_ec2_lambda_role_test_local"
 }
 
 variable "mongo_export_ec2_lambda_policy_name" {
   description = "name of mongo_export_ec2_lambda_policy"
   type        = string
-  default     = "mongo_export_ec2_lambda_policy_test"
+  default     = "mongo_export_ec2_lambda_policy_test_local"
 }
 
 variable "mongo_export_ec2_lambda_attach_name" {
   description = "name of mongo_export_ec2_lambda_attach"
   type        = string
-  default     = "mongo_export_ec2_lambda_attach_test"
+  default     = "mongo_export_ec2_lambda_attach_test_local"
 }

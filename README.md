@@ -1,7 +1,7 @@
 ## Environment
 this project take advantage of aws instance store volumes, you need to deploy on instance which support it.
 i3.large is a minimum requirement, and i3.xlarge is recommended.
-## Install
+## Install Dependency
 this project need these utils:
 1. mongodb-database-tools
 ```sh
@@ -37,7 +37,7 @@ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.clou
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install google-cloud-cli
 ```
-## Setup
+## Setup Dependency
 1. aws-cli
 ```sh
 aws configure
@@ -60,3 +60,30 @@ vi setup_env.sh
 # set some necessary variables
 bash setup_env.sh
 ```
+## Setup Cloud Infras
+1. AWS - create export bucket  
+   * for env variable : S3_PATH  
+   * for GCP Data Transfer config
+2. GCP - create import bucket  
+   * for terraform - setup_gcp_function - variable : import_bucket
+   * for GCP Data Transfer config
+3. GCP - create function bucket  
+   * for terraform - setup_gcp_function - variable : function_bucket 
+4. GCP - create Data Transfer Job  
+   * for env variable : TRANS_JOBID
+5. GCP - create BigQuery DataSet
+   * for env_variable : DATASET_NAME
+   * for terraform - setup_gcp_bigquery - variable : dataset_id
+   * for terraform - setup_gcp_function - variable : dataset_id
+
+## CI/CD Process
+1. Mongo-export
+   * capistrano deploy directly integrate command code
+2. Mongo-export-api
+   * capistrano deploy with script: setup_api:run
+3. AWS-Lambda
+   * capistrano deploy with script: setup_aws:run
+4. GCP-BigQuery
+   * capistrano deploy with script: setup_bigquery:run
+5. GCP-Function
+   * capistrano deploy with script: setup_function:run
