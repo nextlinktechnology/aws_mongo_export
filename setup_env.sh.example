@@ -12,6 +12,9 @@ TRANS_JOBID=""
 SPLIT_SIZE=15000000
 PROJECT_NAME=""
 DATASET_NAME=""
+IS_PRD=""
+SYNC_RELEASE_JOB=""
+SYNC_DEVELOP_JOB=""
 
 echo "make env file for mongo_export"
 cat <<EOF > env.sh
@@ -48,4 +51,7 @@ EOF
 echo "make env file for bqload_fuction"
 cat <<EOF > setup_gcp_function/cloud_function/env.py
 DATASET="${DATASET_NAME}"
+IS_PRD="${IS_PRD}"
+SYNC_RELEASE_JOB="${SYNC_RELEASE_JOB}"
+SYNC_DEVELOP_JOB="${SYNC_DEVELOP_JOB}"
 EOF

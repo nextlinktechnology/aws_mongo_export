@@ -1,5 +1,5 @@
--- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.create_resource_tags`(prefix STRING)
 BEGIN
+-- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.create_resource_tags`(prefix STRING)
 
 -- create _temp suffix table
 EXECUTE IMMEDIATE

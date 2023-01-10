@@ -1,5 +1,5 @@
--- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.bqload_info_truncate`()
 BEGIN
+-- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.bqload_info_truncate`()
 
 CREATE TABLE IF NOT EXISTS `${project_id}.${dataset_id}.bqload_info_history`(
   file_name STRING,

@@ -1,5 +1,5 @@
--- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.bqload_info_update`(file_name STRING)
 BEGIN
+-- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.bqload_info_update`(file_name STRING)
 
 CREATE TABLE IF NOT EXISTS `${project_id}.${dataset_id}.bqload_info`(
   file_name STRING,
