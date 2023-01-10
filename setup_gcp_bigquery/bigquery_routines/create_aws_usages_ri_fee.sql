@@ -1,5 +1,5 @@
--- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.create_aws_usages_ri_fee`()
 BEGIN
+-- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.create_aws_usages_ri_fee`()
 
 -- create _temp suffix table
 EXECUTE IMMEDIATE

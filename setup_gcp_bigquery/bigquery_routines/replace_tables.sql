@@ -1,5 +1,5 @@
--- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.replace_tables`()
 BEGIN
+-- CREATE OR REPLACE PROCEDURE `${project_id}.${dataset_id}.replace_tables`()
 
 DECLARE COUNT_ALL, COUNT_DONE INT64 DEFAULT 0;
 
@@ -78,5 +78,7 @@ DO
     DROP TABLE IF EXISTS `${project_id}.${dataset_id}.%s_temp`;
   """, record.table_name);
 END FOR;
+
+SELECT "Success" AS result;
 
 END;

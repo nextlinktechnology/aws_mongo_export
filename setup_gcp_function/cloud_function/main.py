@@ -8,10 +8,16 @@ def load_bigquery(event, context):
     """
     from google.cloud import bigquery
     from google.api_core.exceptions import BadRequest
+    from google.cloud import bigquery_datatransfer_v1
+    from google.protobuf.timestamp_pb2 import Timestamp
     import re
     import time
 
     dataset = env.DATASET
+    is_prd = env.IS_PRD
+    sync_release_job = env.SYNC_RELEASE_JOB
+    sync_develop_job = env.SYNC_DEVELOP_JOB
+
     print(f'Incoming data: {event}')
 
     input_bucket_name = event["bucket"]
@@ -62,8 +68,25 @@ def load_bigquery(event, context):
 
 
         replace_tab_job = client.query(f'CALL `{dataset}.replace_tables`()')
-        replace_tab_job.result()
+        result = replace_tab_job.result()
+
         print('Replace tab job finished.')
+
+        if is_prd == "true":
+            for line in list(result):
+                msg = line.get("result")
+                if msg == "Success":
+                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
+                    start_time = Timestamp(seconds=int(time.time() + 30))
+                    request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_release_job, requested_run_time=start_time)
+                    response = client.start_manual_transfer_runs(request=request)
+
+                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
+                    start_time = Timestamp(seconds=int(time.time() + 30))
+                    request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_develop_job, requested_run_time=start_time)
+                    response = client.start_manual_transfer_runs(request=request)
+
+                    print('sync job triggered')
 
     if re.findall("\.p\d\d\d\d\.gz$", source_file.lower()):
         table = re.sub("\.p\d\d\d\d\.gz$", "_temp", source_file.lower())
@@ -111,5 +134,22 @@ def load_bigquery(event, context):
         # print('Update info job finished.')
 
         replace_tab_job = client.query(f'CALL `{dataset}.replace_tables`()')
-        replace_tab_job.result()
+        result = replace_tab_job.result()
+
         print('Replace tab job finished.')
+
+        if is_prd == "true":
+            for line in list(result):
+                msg = line.get("result")
+                if msg == "Success":
+                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
+                    start_time = Timestamp(seconds=int(time.time() + 30))
+                    request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_release_job, requested_run_time=start_time)
+                    response = client.start_manual_transfer_runs(request=request)
+
+                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
+                    start_time = Timestamp(seconds=int(time.time() + 30))
+                    request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_develop_job, requested_run_time=start_time)
+                    response = client.start_manual_transfer_runs(request=request)
+
+                    print('sync job triggered')
