@@ -77,11 +77,11 @@ def load_bigquery(event, context):
                 msg = line.get("result")
                 if msg == "Success":
                     client = bigquery_datatransfer_v1.DataTransferServiceClient()
+                    
                     start_time = Timestamp(seconds=int(time.time() + 30))
                     request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_release_job, requested_run_time=start_time)
                     response = client.start_manual_transfer_runs(request=request)
 
-                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
                     start_time = Timestamp(seconds=int(time.time() + 30))
                     request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_develop_job, requested_run_time=start_time)
                     response = client.start_manual_transfer_runs(request=request)
@@ -143,11 +143,11 @@ def load_bigquery(event, context):
                 msg = line.get("result")
                 if msg == "Success":
                     client = bigquery_datatransfer_v1.DataTransferServiceClient()
+
                     start_time = Timestamp(seconds=int(time.time() + 30))
                     request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_release_job, requested_run_time=start_time)
                     response = client.start_manual_transfer_runs(request=request)
 
-                    client = bigquery_datatransfer_v1.DataTransferServiceClient()
                     start_time = Timestamp(seconds=int(time.time() + 30))
                     request = bigquery_datatransfer_v1.StartManualTransferRunsRequest(parent=sync_develop_job, requested_run_time=start_time)
                     response = client.start_manual_transfer_runs(request=request)
